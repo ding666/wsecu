@@ -1,0 +1,33 @@
+
+.col1 {
+	display: block;
+	float: left;
+	width : 50%;
+	line-height: 2em;
+	padding-left: 10px;
+}
+
+.col2 {
+	display: table-cell;
+	width : 50%;
+	text-align: left;
+	line-height: 2em;
+	padding-left: 10px;
+}
+
+#users:nth-child(even) {
+	background: #eeeeee;
+}
+
+.listTitle {
+	font-weight: bold;
+	font-size:large;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 600 PIXELS */
+
+@media only screen and (max-width: 600px) {
+	.col2 {
+		display: block; 
+	}	
+}

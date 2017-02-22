@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wsecu">
+<head>
+<meta charset="utf-8">
+<title>WSECU Home Work</title>
+<link rel="stylesheet" href="wsecu.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+<script src="wsecu.js"></script>
+
+</head>
+<body ng-controller="myCtrl">
+
+	<h3>Search Term</h3>
+	<input type="text" ng-model="term" ng-change="searchTermChanged()"
+		placeholder="Search users within the list"
+		style="height: 40px; margin: 0px 31px; padding: 0px 15px; width: 80%;">
+
+	<div class="section1 group1">
+		<h3>Result</h3>
+	</div>
+
+	<div id="listTitle">
+		<div class="col1 listTitle">Name</div>
+		<div class="col2 listTitle">Email</div>
+		<hr>
+	</div>
+	<div id="users" ng-repeat="user in users | searchFor:term">
+		<div class="col1">{{user.name}}</div>
+		<div class="col2">{{user.email}}</div>
+	</div>
+
+	<div id="searchSummary"
+		style="text-align: right; padding: 20px 20px 10px 10px">
+		<em>{{nFound}} </em>users out of <em>{{users.length}}</em> matched the
+		search term <em>"{{term}}"</em>
+	</div>
+
+</body>
+</html>

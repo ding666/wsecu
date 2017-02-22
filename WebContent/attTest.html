@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="attTest">
+<head>
+<meta charset="utf-8">
+<title>ATT-Test</title>
+<link rel="stylesheet" href="attTest.css"> 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+
+
+</head>
+<body ng-controller="myCtrl">
+
+	<h3>Filter</h3>
+	<input type="text" ng-model="term" ng-change="searchTermChanged()"
+		placeholder="Search meetpoints within the list"
+		style="height: 40px; margin: 0px 31px; padding: 0px 15px; width: 80%;">
+
+
+	<div id="listTitle">
+		<div class="listTitle">Meet Point</div>
+	</div>
+	
+	<div id="selectList">
+	<select name="sourceName" id="sourceName" size="5"
+		ng-model="selectedSources4" single>
+		<option ng-repeat="user in users| searchFor:term"
+			value="{{user.meetPoint}" ng-selected="{{user.selected == 1}}"
+			ng-click="clickedItem(user, $index)">
+			{{user.meetPoint}}</option>
+	</select>
+	</div>
+	<br>
+	<br>
+	<br>
+
+<!-- 	<div id="userList" ng-repeat="user in users | searchFor:term"> -->
+<!-- 		<div class="col1" id="{{'listID_'+$index}}" ng-click="clickedItem(user, $index)">{{user.meetPoint}}</div> -->
+<!-- 	</div> -->
+
+	<br>
+	<div id="searchSummary"
+	style="text-align: left; background-color:pink; width: 100px; margin-top: 40px; padding: 20px 20px 10px 10px">
+	  <p>No Data</p>
+	</div>
+	<br>
+	<div id="meetInfo" style="background-color:#eeeeee;">
+	  <p>{{meetInfo}}</p>
+	</div>
+	
+<script src="attTest.js"></script>
+</body>
+</html>
+

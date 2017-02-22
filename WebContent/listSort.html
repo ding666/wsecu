@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="listSort">
+<head>
+<meta charset="UTF-8">
+<title>List Sort</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+<script src="listSort.js"></script>
+</head>
+<body ng-controller="listSortCtrl">
+
+	<h3>Add a new user name</h3>
+<!-- 	<form ng-submit="submit()"> -->
+<!-- 		<input type="text" ng-model="userName" -->
+<!-- 			name="userName" placeholder="Put a new user name here" -->
+<!-- 			style="height: 40px; margin: 0px 31px; padding: 0px 15px; width: 40%;"/>  -->
+<!-- 			<input type="submit" id="submit" value="Add User" /> -->
+<!-- 		<pre>list={{users}}</pre> -->
+<!-- 	</form> -->
+
+	<input type="text" ng-model="userName"
+		placeholder="Put a new user name here"
+		style="width: 40%;">
+
+	<button ng-click="addUser()">Add User</button>
+
+	<hr>
+
+	<h3>User List</h3>
+
+	<div class="col1 listTitle">Name</div>
+	<div id="users" ng-repeat="user in users">
+		<div class="col1">{{user}}</div>
+	</div>
+
+	<button ng-click="sortUsers()">Sort User</button>
+
+</body>
+</html>
